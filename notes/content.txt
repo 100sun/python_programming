@@ -1,0 +1,148 @@
+7. Tuples and Lists
+Tuples
+Create with Commas and ()
+Create with tuple()
+Combine Tuples by Using +
+Duplicate Items with *
+Compare Tuples
+Iterate with for and in
+Modify a Tuple
+Lists
+Create with []
+Create or Convert with list()
+Create from a String with split()
+Get an Item by [ offset ]
+Get Items with a Slice
+Add an Item to the End with append()
+Add an Item by Offset with insert()
+Duplicate All Items with *
+Combine Lists by Using extend() or +
+Change an Item by [ offset ]
+Change Items with a Slice
+Delete an Item by Offset with del
+Delete an Item by Value with remove()
+Get an Item by Offset and Delete It with pop()
+Delete All Items with clear()
+Find an Item’s Offset by Value with index()
+Test for a Value with in
+Count Occurrences of a Value with count()
+Convert a List to a String with join()
+Reorder Items with sort() or sorted()
+Get Length with len()
+Assign with =
+Copy with copy(), list(), or a Slice
+Copy Everything with deepcopy()
+Compare Lists
+Iterate with for and in
+Iterate Multiple Sequences with zip()
+Create a List with a Comprehension
+Lists of Lists
+Tuples Versus Lists
+There Are No Tuple Comprehensions
+Coming Up
+Things to Do
+8. Dictionaries and Sets
+Dictionaries
+Create with {}
+Create with dict()
+Convert with dict()
+Add or Change an Item by [ key ]
+Get an Item by [key] or with get()
+Get All Keys with keys()
+Get All Values with values()
+Get All Key-Value Pairs with items()
+Get Length with len()
+Combine Dictionaries with {**a, **b}
+Combine Dictionaries with update()
+Delete an Item by Key with del
+Get an Item by Key and Delete It with pop()
+Delete All Items with clear()
+Test for a Key with in
+Assign with =
+Copy with copy()
+Copy Everything with deepcopy()
+Compare Dictionaries
+Iterate with for and in
+Dictionary Comprehensions
+Sets
+Create with set()
+Convert with set()
+Get Length with len()
+Add an Item with add()
+Delete an Item with remove()
+Iterate with for and in
+Test for a Value with in
+Combinations and Operators
+Set Comprehensions
+Create an Immutable Set with frozenset()
+Data Structures So Far
+Make Bigger Data Structures
+Coming Up
+Things to Do
+9. Functions
+Define a Function with def
+Call a Function with Parentheses
+Arguments and Parameters
+None Is Useful
+Positional Arguments
+Keyword Arguments
+Specify Default Parameter Values
+Explode/Gather Positional Arguments with *
+Explode/Gather Keyword Arguments with **
+Keyword-Only Arguments
+Mutable and Immutable Arguments
+Docstrings
+Functions Are First-Class Citizens
+Inner Functions
+Closures
+Anonymous Functions: lambda
+Generators
+Generator Functions
+Generator Comprehensions
+Decorators
+Namespaces and Scope
+Uses of _ and __ in Names
+Recursion
+Async Functions
+Exceptions
+Handle Errors with try and except
+Make Your Own Exceptions
+Coming Up
+Things to Do
+10. Oh Oh: Objects and Classes
+What Are Objects?
+Simple Objects
+Define a Class with class
+Attributes
+Methods
+Initialization
+Inheritance
+Inherit from a Parent Class
+Override a Method
+Add a Method
+Get Help from Your Parent with super()
+Multiple Inheritance
+Mixins
+In self Defense
+Attribute Access
+Direct Access
+Getters and Setters
+Properties for Attribute Access
+Properties for Computed Values
+Name Mangling for Privacy
+Class and Object Attributes
+Method Types
+Instance Methods
+Class Methods
+Static Methods
+Duck Typing
+Magic Methods
+Aggregation and Composition
+When to Use Objects or Something Else
+Named Tuples
+Dataclasses
+Attrs
+Coming Up
+Things to Do
+
+https://www.oreilly.com/library/view/introducing-python-2nd/9781492051374/
