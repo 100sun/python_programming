@@ -135,8 +135,8 @@ Py: Strong Type Lang => Data value can be ***mutable***, not the data type
 | Python Data Structures | for what | ex |
 | ---- | ----- | ---- |
 | [lists](##Lists) | for **ordered** sequence of objects | [' Winken' / 'Blinken' / 'Nod'] |
-| [tuple](##Tuples) | ***immutable*** list | (2 / 4 / 8) |
-| set | **unique** list - Elements doesn't have order and duplicates. | set([ 3 / 5 / 7]) |
+| [tuple](##Tuples) | ***immutable*** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
+| set | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
 | dict | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
 
 So just like reassigning an **integer**, it is pointing a new memory. But if you make an integer **list**, it is ***mutable***. 
@@ -235,49 +235,32 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
 ## Tuples
 
 * tuple unpacking
-  + a, b, c = tupleA
   + tupleA = 'a', 'b', 'c'
   + tupleA = ('a', 'b', 'c')
-  + exchange (o)
-* The tuple() conversion function makes tuples from other things
-* +(combine), *(duplicate), <=>(compare)
-* modify: **immutable** but can *t1+=t2*
-  + id() when a variable name is pointing to a new value:
+  + a, b, c = tupleA
+  + to exchange values in one statement without using a temporary variable (o)
+* tuple(): makes tuples from other things
+* +: combine, *: duplicate, <=>: compare, t1+=t2: **immutable** but can modify
 
 ## Lists
 
-list : order (o) array(o) : only string
-set : order (x) array(o) 
-Create with []
-Create or Convert with list()
-Create from a String with split()
-Get an Item by [ offset ]
-Get Items with a Slice
-Add an Item to the End with append()
-Add an Item by Offset with insert()
-Duplicate All Items with *
-Combine Lists by Using extend() or +
-Change an Item by [ offset ]
-Change Items with a Slice
-Delete an Item by Offset with del
-Delete an Item by Value with remove()
-Get an Item by Offset and Delete It with pop()
-Delete All Items with clear()
-Find an Item’s Offset by Value with index()
-Test for a Value with in
-Count Occurrences of a Value with count()
-Convert a List to a String with join()
-Reorder Items with sort() or sorted()
-Get Length with len()
-Assign with =
-Copy with copy(), list(), or a Slice
-Copy Everything with deepcopy()
-Compare Lists
-Iterate with for and in
-Iterate Multiple Sequences with zip()
-Create a List with a Comprehension
-Lists of Lists
-Tuples Versus Lists
-There Are No Tuple Comprehensions
-Coming Up
-Things to Do
+* [1, 'b', 3], list(), [number for number in range( 1, 6) if number % 2 = = 1], split(), marxes[::-2] 
+* append(): Add to the end, insert(): add by Offset
+* +: combine, *: duplicate
+* del: by Offset, remove(): by Value, clear(): delete all
+* pop(): get + return tail, pop(0): return head, pop(-1): return tail
+* index(): find, in: True/False, count(), for in, 
+* Convert a List to a String with join()
+  + ', '. join(marxes) / separator.join(friends)
+* sort(reverse=true): list itself, sorted(): copied list, len(), =:assign
+* copy
+  + shallow copy: b = a.copy() = list(a) = a[:]
+  + deep copy: b = copy.deepcopy(a)
+* iterate: for and in, Iterate Multiple Sequences: zip()
+
+## Tuples VS Lists
+
+* lists: more functions
+* tuples: less space, immutable so safe
+
+In everyday programming, you’ll use **lists and dictionaries** more
