@@ -1,46 +1,4 @@
-7. Tuples and Lists
-Tuples
-Create with Commas and ()
-Create with tuple()
-Combine Tuples by Using +
-Duplicate Items with *
-Compare Tuples
-Iterate with for and in
-Modify a Tuple
-Lists
-Create with []
-Create or Convert with list()
-Create from a String with split()
-Get an Item by [ offset ]
-Get Items with a Slice
-Add an Item to the End with append()
-Add an Item by Offset with insert()
-Duplicate All Items with *
-Combine Lists by Using extend() or +
-Change an Item by [ offset ]
-Change Items with a Slice
-Delete an Item by Offset with del
-Delete an Item by Value with remove()
-Get an Item by Offset and Delete It with pop()
-Delete All Items with clear()
-Find an Item’s Offset by Value with index()
-Test for a Value with in
-Count Occurrences of a Value with count()
-Convert a List to a String with join()
-Reorder Items with sort() or sorted()
-Get Length with len()
-Assign with =
-Copy with copy(), list(), or a Slice
-Copy Everything with deepcopy()
-Compare Lists
-Iterate with for and in
-Iterate Multiple Sequences with zip()
-Create a List with a Comprehension
-Lists of Lists
-Tuples Versus Lists
-There Are No Tuple Comprehensions
-Coming Up
-Things to Do
+
 8. Dictionaries and Sets
 Dictionaries
 Create with {}
