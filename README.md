@@ -134,10 +134,10 @@ Py: Strong Type Lang => Data value can be ***mutable***, not the data type
 
 | Python Data Structures | for what | ex |
 | ---- | ----- | ---- |
-| [lists](##Lists) | for **ordered** sequence of objects | [' Winken' / 'Blinken' / 'Nod'] |
+| [**lists**](##Lists) | for **ordered** sequence of objects | [' Winken' / 'Blinken' / 'Nod'] |
 | [tuple](##Tuples) | ***immutable*** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
-| set | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
-| dict | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
+| [set](##Sets) | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
+| [**dict**](##Dictionaries) | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
 
 So just like reassigning an **integer**, it is pointing a new memory. But if you make an integer **list**, it is ***mutable***. 
 
@@ -264,3 +264,49 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
 * tuples: less space, immutable so safe
 
 In everyday programming, you’ll use **lists and dictionaries** more
+</details>
+<!---<details>
+  <summary>8. Dictionaries and Sets</summary>-->
+
+# 8. Dictionaries and Sets
+
+## Dictionaries
+
+Create with {}
+Create with dict()
+Convert with dict()
+Add or Change an Item by [ key ]
+Get an Item by [key] or with get()
+Get All Keys with keys()
+Get All Values with values()
+Get All Key-Value Pairs with items()
+Get Length with len()
+Combine Dictionaries with {**a, **b}
+Combine Dictionaries with update()
+Delete an Item by Key with del
+Get an Item by Key and Delete It with pop()
+Delete All Items with clear()
+Test for a Key with in
+Assign with =
+Copy with copy()
+Copy Everything with deepcopy()
+Compare Dictionaries
+Iterate with for and in
+Dictionary Comprehensions
+
+## Sets
+
+Create with set()
+Convert with set()
+Get Length with len()
+Add an Item with add()
+Delete an Item with remove()
+Iterate with for and in
+Test for a Value with in
+Combinations and Operators
+Set Comprehensions
+Create an Immutable Set with frozenset()
+Data Structures So Far
+Make Bigger Data Structures
+Coming Up
+Things to Do

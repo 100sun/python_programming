@@ -1,43 +1,5 @@
+# 9. Functions
 
-8. Dictionaries and Sets
-Dictionaries
-Create with {}
-Create with dict()
-Convert with dict()
-Add or Change an Item by [ key ]
-Get an Item by [key] or with get()
-Get All Keys with keys()
-Get All Values with values()
-Get All Key-Value Pairs with items()
-Get Length with len()
-Combine Dictionaries with {**a, **b}
-Combine Dictionaries with update()
-Delete an Item by Key with del
-Get an Item by Key and Delete It with pop()
-Delete All Items with clear()
-Test for a Key with in
-Assign with =
-Copy with copy()
-Copy Everything with deepcopy()
-Compare Dictionaries
-Iterate with for and in
-Dictionary Comprehensions
-Sets
-Create with set()
-Convert with set()
-Get Length with len()
-Add an Item with add()
-Delete an Item with remove()
-Iterate with for and in
-Test for a Value with in
-Combinations and Operators
-Set Comprehensions
-Create an Immutable Set with frozenset()
-Data Structures So Far
-Make Bigger Data Structures
-Coming Up
-Things to Do
-9. Functions
 Define a Function with def
 Call a Function with Parentheses
 Arguments and Parameters
@@ -67,7 +29,9 @@ Handle Errors with try and except
 Make Your Own Exceptions
 Coming Up
 Things to Do
-10. Oh Oh: Objects and Classes
+
+# 10. Oh Oh: Objects and Classes
+
 What Are Objects?
 Simple Objects
 Define a Class with class
