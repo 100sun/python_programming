@@ -134,10 +134,10 @@ Py: Strong Type Lang => Data value can be ***mutable***, not the data type
 
 | Python Data Structures | for what | ex |
 | ---- | ----- | ---- |
-| [**lists**](##Lists) | for **ordered** sequence of objects | [' Winken' / 'Blinken' / 'Nod'] |
-| [tuple](##Tuples) | ***immutable*** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
-| [set](##Sets) | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
-| [**dict**](##Dictionaries) | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
+| [**lists**](##Lists-&-Dictionaries)[] | for **ordered** sequence of objects | [' Winken' / 'Blinken' / 'Nod'] |
+| [tuple](##Tuples))() | ***immutable*** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
+| [set](##Sets)([]) | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
+| [**dict**](##Lists-&-Dictionaries){} | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
 
 So just like reassigning an **integer**, it is pointing a new memory. But if you make an integer **list**, it is ***mutable***. 
 
@@ -234,65 +234,52 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
 
 ## Tuples
 
+### create
+
 * tuple unpacking
   + tupleA = 'a', 'b', 'c'
   + tupleA = ('a', 'b', 'c')
   + a, b, c = tupleA
   + to exchange values in one statement without using a temporary variable (o)
 * tuple(): makes tuples from other things
+
+### add
+
 * +: combine, *: duplicate, <=>: compare, t1+=t2: **immutable** but can modify
-
-## Lists
-
-* [1, 'b', 3], list(), [number for number in range( 1, 6) if number % 2 = = 1], split(), marxes[::-2] 
-* append(): Add to the end, insert(): add by Offset
-* +: combine, *: duplicate
-* del: by Offset, remove(): by Value, clear(): delete all
-* pop(): get + return tail, pop(0): return head, pop(-1): return tail
-* index(): find, in: True/False, count(), for in, 
-* Convert a List to a String with join()
-  + ', '. join(marxes) / separator.join(friends)
-* sort(reverse=true): list itself, sorted(): copied list, len(), =:assign
-* copy
-  + shallow copy: b = a.copy() = list(a) = a[:]
-  + deep copy: b = copy.deepcopy(a)
-* iterate: for and in, Iterate Multiple Sequences: zip()
 
 ## Tuples VS Lists
 
 * lists: more functions
 * tuples: less space, immutable so safe
 
+## Lists & Dictionaries
+
+| action | Lists | Dictionaries
+| ---- | ---- | ---- | 
+| create | [1, 'b', 3], list() | {'key'='value', }, dict(key='value'), dict(two-item lists, tuples, strings, characters)|
+| delete | del: by Offset, remove(): by Value, clear(): delete all<br/>pop(): get + return tail, pop(0): return head, pop(-1): return tail | del, pop(), clear() | 
+| assign | = | = |
+| extend | append(): Add to the end, insert(): add by Offset <br/> +: combine, *: duplicate<Br/>Convert a List to a String with join()<Br/>: ', '. join(marxes) / separator.join(friends) | combine : {**a, **b}, update(b) | 
+| split | split(), marxes[::-2]  |  |
+| sort | sort(reverse=true): list itself, sorted(): copied list | |
+| find |  index()<br/>in: True/False, count(), len() | [key], get(), keys(), values(), items() - pairs, len()<Br/>in |
+| traverse | for and in<Br/>Iterate Multiple Sequences: zip() | for and in<Br/>- values(), items() |
+| [copy](https://github.com/100sun/python_programming/blob/master/assignments/20181028%20%EB%B0%B1%EC%84%A0%ED%98%9C%20%EA%B3%BC%EC%A0%9C2.md#%EA%B0%80-%EC%84%A4%EB%AA%85) | shallow copy: b = a.copy() = list(a) = a[:]<br/>deep copy: b = copy.deepcopy(a) | copy(), deepcopy() |
+| compare | ==, !=, <> | ==, !=, no >< ∵ unordered |
+| comprehension | [number for number in range( 1, 6) if number % 2 = = 1] | {letter: word.count( letter) for letter in set( word) if letter in vowels} |
+
+## Lists VS Dictionaries
+
+* by offset vs by **key** 
+* ordered vs unordered
+* in **key**: has to be **unique** - almost string, and only **tuples** ∵ only immutable
+
 In everyday programming, you’ll use **lists and dictionaries** more
 </details>
-<!---<details>
-  <summary>8. Dictionaries and Sets</summary>-->
+<details>
+  <summary>8. Dictionaries and Sets</summary>
 
 # 8. Dictionaries and Sets
-
-## Dictionaries
-
-Create with {}
-Create with dict()
-Convert with dict()
-Add or Change an Item by [ key ]
-Get an Item by [key] or with get()
-Get All Keys with keys()
-Get All Values with values()
-Get All Key-Value Pairs with items()
-Get Length with len()
-Combine Dictionaries with {**a, **b}
-Combine Dictionaries with update()
-Delete an Item by Key with del
-Get an Item by Key and Delete It with pop()
-Delete All Items with clear()
-Test for a Key with in
-Assign with =
-Copy with copy()
-Copy Everything with deepcopy()
-Compare Dictionaries
-Iterate with for and in
-Dictionary Comprehensions
 
 ## Sets
 
