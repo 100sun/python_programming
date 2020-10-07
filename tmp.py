@@ -4,11 +4,12 @@ wordCnt = dict()
 letterCnt = dict()
 
 for word in words:
-     if word in wordCnt:
-          wordCnt[word] += 1
+     word_lower = word.lower()
+     if word_lower in wordCnt:
+          wordCnt[word_lower] += 1
      else:
-          wordCnt[word] = 1
-     for letter in word:
+          wordCnt[word_lower] = 1
+     for letter in word_lower:
           if letter in letterCnt:
                letterCnt[letter] += 1
           else:
