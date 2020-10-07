@@ -135,7 +135,7 @@ Py: Strong Type Lang => Data value can be ***mutable***, not the data type
 | Python Data Structures | for what | ex |
 | ---- | ----- | ---- |
 | [**lists**](##Lists-&-Dictionaries)[] | for **ordered** sequence of objects | [' Winken' / 'Blinken' / 'Nod'] |
-| [tuple](##Tuples))() | ***immutable*** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
+| [tuple](##Tuples)() | ***immutable*** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
 | [set](##Sets)([]) | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
 | [**dict**](##Lists-&-Dictionaries){} | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
 
@@ -271,7 +271,7 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
 ## Lists VS Dictionaries
 
 * by offset vs by **key** 
-* ordered vs unordered
+* **ordered** vs unordered
 * in **key**: has to be **unique** - almost string, and only **tuples** ∵ only immutable
 
 In everyday programming, you’ll use **lists and dictionaries** more
@@ -283,17 +283,25 @@ In everyday programming, you’ll use **lists and dictionaries** more
 
 ## Sets
 
-Create with set()
-Convert with set()
-Get Length with len()
-Add an Item with add()
-Delete an Item with remove()
-Iterate with for and in
-Test for a Value with in
-Combinations and Operators
-Set Comprehensions
-Create an Immutable Set with frozenset()
-Data Structures So Far
-Make Bigger Data Structures
-Coming Up
-Things to Do
+* A list by using square brackets ([]) 
+* A tuple by using commas and optional parentheses 
+* A dictionary or set by using curly brackets ({}) 
+  + For the set, it’s either there or it’s not; there’s no index or key:
+
+### create
+
+* set(), {} (but empty {} == dict)
+* len(), add(), remove(), in, for in
+* Create an Immutable Set with frozenset()
+
+### operator
+
+* &, intersection()
+* |, union()
+* -, difference()
+* ^, symmetric_difference()
+* <=, issubset(), >=, issuperset(), >, <
+
+### Set Comprehensions
+
+* a_set = {number for number in range( 1, 6) if number % 3 = = 1}
