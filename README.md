@@ -151,7 +151,7 @@ Python is rapping each data value(e.g. boolean / function..) as an object on the
 * Integer list : ***mutable***. 
 
 | Python Data Structures | mutable? | for what | ex |
-| ---- | ----- | ---- |
+| ---- | ----- | ---- | ---- |
 | [⭐lists](#Lists-&-Dictionaries)[] | ***mutable*** | **ordered** array + only string<br/>(array: unordered) | [' Winken' / 'Blinken' / 'Nod'] |
 | [tuple](#Tuples)() | immutable | **immutable** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
 | [set](#Sets)([]) | ***mutable*** | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
