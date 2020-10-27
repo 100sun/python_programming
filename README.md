@@ -4,14 +4,13 @@ The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanov
 
 # Contents
 
-### [1. A Taste of Py](#1-a-taste-of-py)
+### [1. A Taste of Py](#1-a-taste-of-py-1)
 
-    - [library modules](#library-modules)
   + [Why Python](#why-python)
   + [Why not Python](#why-not-python)
   + [The Zen of Python, by Tim Peters](#the-zen-of-python-by-tim-peters)
 
-### [2. Data](#2-data)
+### [2. Data](#2-data-1)
 
   + [Python Data Are Objects](#python-data-are-objects)
   + [What's in an python object?](#what's-in-an-python-object)
@@ -19,42 +18,30 @@ The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanov
   + [Assignment](#assignment)
   + [Variables Are Names, Not Places](#variables-are-names-not-places)
 
-### [3. Numbers](#3-numbers)
+### [3. Numbers](#3-numbers-1)
 
-### [4. Choose with if](#4-choose-with-if)
+### [4. Choose with if](#4-choose-with-if-1)
 
-### [5. Text Strings](#5-text-strings)
+### [5. Text Strings](#5-text-strings-1)
 
-  + [definition](#definition)
-  + [function](#function)
   + [formatting](#formatting)
 
-### [6. Loop with while and for](#6-loop-with-while-and-for)
+### [6. Loop with while and for](#6-loop-with-while-and-for-1)
 
-### [7. Tuples and Lists](#7-tuples-and-lists)
+### [7. Tuples and Lists](#7-tuples-and-lists-1)
 
   + [Tuples](#tuples)
-    - [create](#create)
-    - [add](#add)
-  + [Tuples VS Lists](#tuples-vs-lists)
-  + [Lists & Dictionaries](#lists--dictionaries)
   + [Lists VS Dictionaries](#lists-vs-dictionaries)
 
-### [8. Dictionaries and Sets](#8-dictionaries-and-sets)
+### [8. Dictionaries and Sets](#8-dictionaries-and-sets-1)
 
   + [Sets](#sets)
-    - [create](#create)
-    - [operator](#operator)
-    - [Set Comprehensions](#set-comprehensions)
 
-### [9. Functions](#9-functions)
+### [9. Functions](#9-functions-1)
 
   + [None Is Useful](#none-is-useful)
   + [Specify Default Parameter Values](#specify-default-parameter-values)
   + [Positional Arguments VS Keyword Arguments](#positional-arguments-vs-keyword-arguments)
-    - [Explode/Gather Positional Arguments with *](#explodegather-positional-arguments-with-)
-    - [Explode/Gather Keyword Arguments with **](#explodegather-keyword-arguments-with-)
-    - [Keyword-Only Arguments](#keyword-only-arguments)
   + [Mutable and Immutable Arguments](#mutable-and-immutable-arguments)
   + [Docstrings](#docstrings)
   + [Functions Are First-Class Object](#functions-are-first-class-object)
@@ -68,7 +55,7 @@ The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanov
   + [Async Functions](#async-functions)
   + [Exceptions](#exceptions)
 
-### [10. Oh Oh: Objects and Classes](#10-oh-oh-objects-and-classes)
+### [10. Oh Oh: Objects and Classes](#10-oh-oh-objects-and-classes-1)
 
   + [Object Oriented Paradigm](#object-oriented-paradigm)
   + [Class](#class)
@@ -514,27 +501,15 @@ edit_story( stairs, lambda word: word.capitalize() + '!')
 
 ## Generators
 
-: sequence creation object
-
-* can be run only once
+||Function|Generator|
+|--|--|--|
+|returning|return value|yield iterator|
 
 ``` py
->>> def get_odds(): 
-	for num in range(1,10,2):
-		yield num ### instead of return
-
->>> get_odds # function
->>> get_odds() # generator object
->>> cnt = 1
->>> for num in get_odds():
-	if cnt == 3:
-		print(num)
-		break
-	cnt += 1
-
-5
->>> genobj = (pair for pair in zip([' a', 'b'], [' 1', '2'])) 
->>> for num in genobj: # generator object
+# comprehensions
+genobj = (pair for pair in zip([' a', 'b'], [' 1', '2'])) 
+print(list(genobj()) # generator object
+# can be run only once
 ```
 
 ## Decorators
