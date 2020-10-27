@@ -303,6 +303,7 @@ marx_tuple = 'a', 'b', 'c'
 tuple(marx_list)
 # tuple unpacking
 a,b,c = marx_tuple
+for first,second in tuple_list
 # swap O without using temp
 password, icecream = icecream, password
 ```
@@ -327,8 +328,8 @@ t1 # different from the above t1. It's new tuple. ∵immutable tuple
 | ---- | ---- | ---- | 
 | create | [1, 'b', 3]<br/>list() | {'key'='value', }<br/>dict(key='value'), dict(two-level characters, strings, lists, tuples )|
 | split | split(), list[::-2]  |  |
-| add | append(str), insert(offset, str), extend(merge)<br/> +: combine, *: duplicate, +=: merge<Br/>Convert a List to a String with join()<Br/>: ', '. join(marxes) / separator.join(friends) | combine : {**a, **b}, update(b) | 
-| delete | **del** list[offset], **remove**('value'), **clear**(): delete all<br/>get+return: **pop**(0)=pop(-1)=tail, pop(0)=head| del, clear()<br/>pop()| 
+| add | **append**(str), **insert**(offset, str), **extend**(merge)<br/> +: combine, *: duplicate, +=: merge<Br/>separator.join(friends) | combine : {**a, **b}, update(b) | 
+| delete | **del** list[offset], **remove**('value'), **clear**(): delete all<br/>get+return) **pop**(0)=pop(-1)=tail, pop(0)=head| del, clear()<br/>pop()| 
 | assign | = | = |
 | sort | sort(reverse=true): list itself, sorted(): copied list | |
 | find |  index()<br/>in: True/False, count(), len() | [key], get(), keys(), values(), items() - pairs, len()<Br/>in |
