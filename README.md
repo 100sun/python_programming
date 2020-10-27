@@ -317,7 +317,27 @@ t1 += t2
 t1 # different from the above t1. It's new tuple. ∵immutable tuple
 ```
 
-## Lists
+## Lists VS Dictionaries
+
+| Lists | Dictionaries |
+| ---- | ---- | 
+| by offset| by **key** |
+| **ordered**| unordered |
+
+| action | Lists | Dictionaries |
+| ---- | ---- | ---- | 
+| create | [1, 'b', 3]<br/>list() | {'key'='value', }<br/>dict(key='value'), dict(two-level characters, strings, lists, tuples )|
+| split | split(), list[::-2]  |  |
+| add | **append**(str), **insert**(offset, str), **extend**(merge)<br/> +: combine +=: merge, *: duplicate<Br/>separator.join(friends) | dict[last_key]=last_val<Br/>{**a, **b}, update(b): combine | 
+| delete | **del** list[offset], **remove**('value'), **clear**(): delete all<br/>**pop**(0)=pop(-1)=tail, pop(0)=head| del<br/>clear()<br/>pop()| 
+| sort | list.**sort**(reverse=true <Br/>new_list = list.**sorted**()| |
+| find | **index**(value)<br/>value **in** list->True/False<br/>list.**count**(value), **len**(list) | dict[key]=value=**get**(key), **keys**(), **values**(), pairs=**items**() - pairs, pairs#=**len**(dict)<Br/>in |
+| traverse | for in<Br/> Iterate Multiple Sequences: zip() | for in<Br/>- values(), items() |
+| [copy](https://github.com/100sun/python_programming/blob/master/assignments/20181028%20%EB%B0%B1%EC%84%A0%ED%98%9C%20%EA%B3%BC%EC%A0%9C2.md#%EA%B0%80-%EC%84%A4%EB%AA%85) | b = a.copy() = list(a) = a[:]<br/>b = copy.**deepcopy**(a) | copy()<Br/>deepcopy() |
+| compare | ==, !=, <> | ==, !=, **no ><** ∵ unordered |
+| comprehension | [~ for ~ in ~ if ~] | { ~:~ for ~ in ~ if ~} |
+
+### Lists
 
 ``` py
 # zip(): iterate multiple sequeces with zip()
@@ -333,7 +353,7 @@ list1[-1] = list1[-1].[::-1]
 cap_list1 = '! '.join(i.capitalize() for i in list1)
 ```
 
-## Dictionaries
+### Dictionaries
 
 ``` py
 a = {1: 1, 2: 2, 3: 3}
@@ -345,34 +365,9 @@ b = {1: [1, 1], 2: [1], 3:[ 1]}
 a == b # False
 ```
 
-### Lists VS Dictionaries
-
-| Lists | Dictionaries |
-| ---- | ---- | 
-| by offset| by **key** |
-| **ordered**| unordered |
-
-| action | Lists | Dictionaries |
-| ---- | ---- | ---- | 
-| create | [1, 'b', 3]<br/>list() | {'key'='value', }<br/>dict(key='value'), dict(two-level characters, strings, lists, tuples )|
-| split | split(), list[::-2]  | dict[key] |
-| add | **append**(str), **insert**(offset, str), **extend**(merge)<br/> +: combine +=: merge, *: duplicate<Br/>separator.join(friends) | dict[last_key]=last_val<Br/>{**a, **b}, update(b): combine | 
-| delete | **del** list[offset], **remove**('value'), **clear**(): delete all<br/>**pop**(0)=pop(-1)=tail, pop(0)=head| del<br/>clear()<br/>pop()| 
-| sort | list.**sort**(reverse=true <Br/>new_list = list.**sorted**()| |
-| find | **index**(value)<br/>value **in** list->True/False<br/>list.**count**(value), **len**(list) | value=**get**(key), **keys**(), **values**(), pairs=**items**() - pairs, pairs#=**len**(dict)<Br/>in |
-| traverse | for in<Br/> Iterate Multiple Sequences: zip() | for in<Br/>- values(), items() |
-| [copy](https://github.com/100sun/python_programming/blob/master/assignments/20181028%20%EB%B0%B1%EC%84%A0%ED%98%9C%20%EA%B3%BC%EC%A0%9C2.md#%EA%B0%80-%EC%84%A4%EB%AA%85) | b = a.copy() = list(a) = a[:]<br/>b = copy.**deepcopy**(a) | copy()<Br/>deepcopy() |
-| compare | ==, !=, <> | ==, !=, **no ><** ∵ unordered |
-| comprehension | [~ for ~ in ~ if ~] | { ~:~ for ~ in ~ if ~} |
-
 # 8. Dictionaries and Sets
 
 ## Sets
-
-* A list by using square brackets ([]) 
-* A tuple by using commas and optional parentheses 
-* A dictionary or set by using curly brackets ({}) 
-  + For the set, it’s either there or it’s not; there’s no index or key:
 
 ### create
 
@@ -382,15 +377,18 @@ a == b # False
 
 ### operator
 
-* &, intersection()
-* |, union()
-* -, difference()
-* ^, symmetric_difference()
-* <=, issubset(), >=, issuperset(), >, <
+* &, intersection(): A∩B
+* |, union(): AUB
+* -, difference(): A-B
+* ^, symmetric_difference() : AUB-A∩B
+* <=, issubset() / >=, issuperset() / > / <
 
-### Set Comprehensions
+### Comprehensions
 
-* a_set = {number for number in range( 1, 6) if number % 3 = = 1}
+``` py
+# { ~ for ~ in ~ if ~}
+a_set = {number for number in range(1, 6) if number % 3 = = 1}
+```
 
 # 9. Functions
 
