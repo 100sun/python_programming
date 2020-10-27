@@ -289,6 +289,7 @@ In everyday programming, you’ll use **lists and dictionaries** more
 |---|---|
 |mutable|immutable => safe|
 |多 functions| 少 space|
+|comprehension 有|comprehension 無|
 
 **Key** in the dict has to be **unique** -> almost string, and only **tuples** ∵ only immutable
 
@@ -324,17 +325,26 @@ t1 # different from the above t1. It's new tuple. ∵immutable tuple
 
 | action | Lists | Dictionaries |
 | ---- | ---- | ---- | 
-| create | [1, 'b', 3]<br/>list() | {'key'='value', }<br/>dict(key='value'), dict(two-item lists, tuples, strings, characters)|
-| delete | del: by Offset, remove(): by Value, clear(): delete all<br/>pop(): get + return tail, pop(0): return head, pop(-1): return tail | del, pop(), clear() | 
+| create | [1, 'b', 3]<br/>list() | {'key'='value', }<br/>dict(key='value'), dict(two-level characters, strings, lists, tuples )|
+| split | split(), list[::-2]  |  |
+| add | append(str), insert(offset, str), extend(merge)<br/> +: combine, *: duplicate, +=: merge<Br/>Convert a List to a String with join()<Br/>: ', '. join(marxes) / separator.join(friends) | combine : {**a, **b}, update(b) | 
+| delete | **del** list[offset], **remove**('value'), **clear**(): delete all<br/>get+return: **pop**(0)=pop(-1)=tail, pop(0)=head| del, clear()<br/>pop()| 
 | assign | = | = |
-| extend | append(): Add to the end, insert(): add by Offset <br/> +: combine, *: duplicate<Br/>Convert a List to a String with join()<Br/>: ', '. join(marxes) / separator.join(friends) | combine : {**a, **b}, update(b) | 
-| split | split(), marxes[::-2]  |  |
 | sort | sort(reverse=true): list itself, sorted(): copied list | |
 | find |  index()<br/>in: True/False, count(), len() | [key], get(), keys(), values(), items() - pairs, len()<Br/>in |
 | traverse | for and in<Br/> Iterate Multiple Sequences: zip() | for and in<Br/>- values(), items() |
 | [copy](https://github.com/100sun/python_programming/blob/master/assignments/20181028%20%EB%B0%B1%EC%84%A0%ED%98%9C%20%EA%B3%BC%EC%A0%9C2.md#%EA%B0%80-%EC%84%A4%EB%AA%85) | shallow copy: b = a.copy() = list(a) = a[:]<br/>deep copy: b = copy.deepcopy(a) | copy(), deepcopy() |
 | compare | ==, !=, <> | ==, !=, no >< ∵ unordered |
 | comprehension | [number for number in range( 1, 6) if number % 2 = = 1] | {letter: word.count( letter) for letter in set( word) if letter in vowels} |
+
+``` py
+# zip(): iterate multiple sequeces with zip()
+for list1, list2, list3 in zip(list1, list2, list3):
+list(zip(tuple1, tuple2))
+# comprehension: [- for - in - if -]
+c_list = [number for number in range( 1, 6) if number % 2 = = 1]
+{letter: word.count( letter) for letter in set( word) if letter in vowels}
+```
 
 # 8. Dictionaries and Sets
 
