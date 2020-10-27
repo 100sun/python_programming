@@ -1,47 +1,47 @@
-# Python Programming
-
 The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanovic](https://www.oreilly.com/library/view/introducing-python-2nd/9781492051374/)'.
 
 # Contents
 
-* [Python Programming](#python-programming)
-* [Chp1. A Taste of Py](#chp1-a-taste-of-py)
-    - [library modules](#library-modules)
-  + [1-5 Why Python](#1-5-why-python)
-  + [1-6 Disadvs](#1-6-disadvs)
-    - [Popularity](#popularity)
-  + [1-11 The Zen of Python](#1-11-the-zen-of-python)
-* [2. Data](#2-data)
+### 1. A Taste of Py
+
+  + [Why Python](#why-python)
+  + [Why not Python](#why-not-python)
+  + [The Zen of Python, by Tim Peters](#the-zen-of-python-by-tim-peters)
+
+### 2. Data
+
   + [Python Data Are Objects](#python-data-are-objects)
-    - [In an object](#in-an-object)
   + [Types](#types)
   + [Assignment](#assignment)
-* [3. Numbers](#3-numbers)
-* [4. Choose with if](#4-choose-with-if)
-* [5. Text Strings](#5-text-strings)
+
+### 3. Numbers
+
+### 4. Choose with if
+
+### 5. Text Strings
+
   + [definition](#definition)
   + [function](#function)
   + [formatting](#formatting)
-* [6. Loop with while and for](#6-loop-with-while-and-for)
-* [7. Tuples and Lists](#7-tuples-and-lists)
+
+### 6. Loop with while and for
+
+### 7. Tuples and Lists
+
   + [Tuples](#tuples)
-    - [create](#create)
-    - [add](#add)
   + [Tuples VS Lists](#tuples-vs-lists)
   + [Lists & Dictionaries](#lists--dictionaries)
   + [Lists VS Dictionaries](#lists-vs-dictionaries)
-* [8. Dictionaries and Sets](#8-dictionaries-and-sets)
+
+### 8. Dictionaries and Sets
+
   + [Sets](#sets)
-    - [create](#create)
-    - [operator](#operator)
-    - [Set Comprehensions](#set-comprehensions)
-* [9. Functions](#9-functions)
+
+### 9. Functions
+
   + [None Is Useful](#none-is-useful)
   + [Specify Default Parameter Values](#specify-default-parameter-values)
   + [Positional Arguments VS Keyword Arguments](#positional-arguments-vs-keyword-arguments)
-    - [Explode/Gather Positional Arguments with *](#explodegather-positional-arguments-with-)
-    - [Explode/Gather Keyword Arguments with **](#explodegather-keyword-arguments-with-)
-    - [Keyword-Only Arguments](#keyword-only-arguments)
   + [Mutable and Immutable Arguments](#mutable-and-immutable-arguments)
   + [Docstrings](#docstrings)
   + [Functions Are First-Class Object](#functions-are-first-class-object)
@@ -54,13 +54,15 @@ The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanov
   + [Recursion](#recursion)
   + [Async Functions](#async-functions)
   + [Exceptions](#exceptions)
-* [10. Oh Oh: Objects and Classes](#10-oh-oh-objects-and-classes)
+
+### 10. Oh Oh: Objects and Classes
+
   + [Object Oriented Paradigm](#object-oriented-paradigm)
   + [Class](#class)
 
 <hr/>
 
-# Chp1. A Taste of Py
+# 1. A Taste of Py
 
 ### library modules
 
@@ -90,25 +92,19 @@ except:
     print("Sorry, no luck finding", site)
 ```
 
-## 1-5 Why Python
+## Why Python
 
 * simple and compact
-* google-selected
+* google-picked
 * Data Science and Machine Learning
 
-## 1-6 Disadvs
+## Why not Python
 
 * Static: C/C++, Java, Rust, Go
-* Dynamic(script): Python PHP
+* Dynamic(script): Python PHP => low speed
+* BUT std python interpreter in C is developing now
 
-=> low speed</br>
-but its std interpreter is by C -> developing now
-
-### Popularity
-
-## 1-11 The Zen of Python
-
-by Tim Peters 
+## The Zen of Python, by Tim Peters 
 
 * Beautiful is better than ugly.
 * Simple is better than complex. 
@@ -117,8 +113,8 @@ by Tim Peters
 
 # 2. Data
 
-static lang: declare data type(o)
-**dynamic lang**: declare data type(x)
+* static lang: declare data type(o)
+* **dynamic lang**: declare data type(x)
 
 ## Python Data Are Objects
 
