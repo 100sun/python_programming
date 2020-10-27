@@ -6,6 +6,81 @@ The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanov
 
 # Contents
 
+### [Python Programming](#python-programming)
+
+### [Contents](#contents)
+
+### [1. A Taste of Py](#1-a-taste-of-py)
+
+    - [library modules](#library-modules)
+  + [Why Python](#why-python)
+  + [Why not Python](#why-not-python)
+  + [The Zen of Python, by Tim Peters](#the-zen-of-python-by-tim-peters)
+
+### [2. Data](#2-data)
+
+  + [Python Data Are Objects](#python-data-are-objects)
+  + [What's in an python object?](#what's-in-an-python-object)
+  + [Types](#types)
+  + [Assignment](#assignment)
+  + [Variables Are Names, Not Places](#variables-are-names-not-places)
+
+### [3. Numbers](#3-numbers)
+
+### [4. Choose with if](#4-choose-with-if)
+
+### [5. Text Strings](#5-text-strings)
+
+  + [definition](#definition)
+  + [function](#function)
+  + [formatting](#formatting)
+
+### [6. Loop with while and for](#6-loop-with-while-and-for)
+
+### [7. Tuples and Lists](#7-tuples-and-lists)
+
+  + [Tuples](#tuples)
+    - [create](#create)
+    - [add](#add)
+  + [Tuples VS Lists](#tuples-vs-lists)
+  + [Lists & Dictionaries](#lists--dictionaries)
+  + [Lists VS Dictionaries](#lists-vs-dictionaries)
+
+### [8. Dictionaries and Sets](#8-dictionaries-and-sets)
+
+  + [Sets](#sets)
+    - [create](#create)
+    - [operator](#operator)
+    - [Set Comprehensions](#set-comprehensions)
+
+### [9. Functions](#9-functions)
+
+  + [None Is Useful](#none-is-useful)
+  + [Specify Default Parameter Values](#specify-default-parameter-values)
+  + [Positional Arguments VS Keyword Arguments](#positional-arguments-vs-keyword-arguments)
+    - [Explode/Gather Positional Arguments with *](#explodegather-positional-arguments-with-)
+    - [Explode/Gather Keyword Arguments with **](#explodegather-keyword-arguments-with-)
+    - [Keyword-Only Arguments](#keyword-only-arguments)
+  + [Mutable and Immutable Arguments](#mutable-and-immutable-arguments)
+  + [Docstrings](#docstrings)
+  + [Functions Are First-Class Object](#functions-are-first-class-object)
+  + [Inner Functions and Closures](#inner-functions-and-closures)
+  + [Anonymous Functions: lambda](#anonymous-functions-lambda)
+  + [Generators](#generators)
+  + [Decorators](#decorators)
+  + [Namespaces and Scope](#namespaces-and-scope)
+  + [Uses of _ and __ in Names](#uses-of-_-and-__-in-names)
+  + [Recursion](#recursion)
+  + [Async Functions](#async-functions)
+  + [Exceptions](#exceptions)
+
+### [10. Oh Oh: Objects and Classes](#10-oh-oh-objects-and-classes)
+
+  + [Object Oriented Paradigm](#object-oriented-paradigm)
+  + [Class](#class)
+
+<hr/>
+
 #### Python Programming
 
 #### 1. A Taste of Py
@@ -134,14 +209,25 @@ except:
 
 ## Python Data Are Objects
 
-Python is rapping each data value(e.g. boolean / function..) as an object on the memory
+* Python is rapping each data value(e.g. boolean / function..) as an object on the memory
+* type ≒ class
+
+``` py
+type(7) # <class 'int'>
+isinstance(7, type)
+```
 
 ## What's in an python object?
 
-* A type (ex. Integer)
-* A unique id to distinguish it from other objects 
-* A value consistent with its type (ex. 7)
-* A reference count that tracks how often this object is used
+* A *type* (ex. Integer)
+* A unique *id* to distinguish it from other objects 
+* A *value* consistent with its type (ex. 7)
+* A *reference count* that tracks how often this object is used
+
+``` 
+a -> [int, a3494, 7, 1]
+b -> [int, a3494, 7, 1]
+```
 
 ## Types
 
@@ -160,37 +246,62 @@ Python is rapping each data value(e.g. boolean / function..) as an object on the
 
 ## Assignment
 
-* expression VS statement
-* Dynamic Lang: 
-    - **Assignment** does not copy a value; it just **attaches a name** to the object that contains the data.
-    - => type(), instance()
-* Interpreter Lang:
-    - reassigning => reference_count++; || reference_count == 0 (**garbage collector**)
+* expression: A=B VS statement: A=B; 
+
+## Variables Are Names, Not Places
+
+* ∵ Python = Dynamic Lang & Interpreter Lang
+* (re)assignment does not copy a value => **reference_count++**
+* when reference_count == 0: **garbage collector**
     - can assign to **multiple** names
 
 # 3. Numbers
 
-* Booleans: int(True) -> 1 / bool(0.0) -> False
-* Integers: 1_2_3 可 (in recent Java too)
-    - /: floating-point (decimal) division 
-        - ex. 5/0.0 -> python exception / java infinity
-    - //: integer (truncating) division
-    - divmod(9,5) -> (1,4)
-    - Python handles googoly integers with no problem.
-* Bases: 0b(inary), 0o(ctal), 0x(hex)
-    - bin(), oct(), hdx()
-    - chr(65) = ord('A'), chr(97) = ord('a')
+``` py
+# Booleans
+int(True) # 1
+bool(0.0) # False
+# empty string, list, tuple, dictionary, set: False
+
+# Integers
+type(1_2_3) # <class 'int'>
+
+# / floating-point (decimal) division 
+5/1.1 # 4.545454
+5/0.0 # python ZeroDivisionError / java infinity
+# // integer (truncating) division
+5//1.1 # 4.0
+divmod(9,5) # (1,4)
+# Python handles googoly(10^100) integers with no problem.
+
+# Bases
+bin() #0b
+oct() #0o
+hex() #0x
+
+chr(65) ## = ord('A')
+chr(97) ## = ord('a')
+```
 
 # 4. Choose with if
 
-* block(x) indentation(o) <- Guido van Rossum loves to beautify 
-* Comment with #
-* Continue Lines with \ (>80)
+* block(x) indentation(o) ∵ Guido van Rossum loves to beautify 
+* Continue Lines with \ (>80: recommended)
 * if ~: elif ~: else: 
     - and, or, not, a < b < c
-    - false (empty string, list, tuple, dictionary, set)
     - in (membership operator)
-    - name := expression (walrus operator)
+
+``` py
+diff = tweet_limit - len(tweet_string)
+if diff > = 0:
+    print(" A fitting tweet")
+```
+
+``` py
+# 'name := expression' (walrus operator)
+if diff := tweet_limit - len( tweet_string) > = 0:
+    print(" A fitting tweet")
+```
 
 # 5. Text Strings
 
