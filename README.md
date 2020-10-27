@@ -336,15 +336,20 @@ t1 # different from the above t1. It's new tuple. ∵immutable tuple
 | traverse | for in<Br/> Iterate Multiple Sequences: zip() | for in<Br/>- values(), items() |
 | [copy](https://github.com/100sun/python_programming/blob/master/assignments/20181028%20%EB%B0%B1%EC%84%A0%ED%98%9C%20%EA%B3%BC%EC%A0%9C2.md#%EA%B0%80-%EC%84%A4%EB%AA%85) | shallow: b = a.copy() = list(a) = a[:]<br/>deep: b = copy.**deepcopy**(a) | copy()<Br/>deepcopy() |
 | compare | ==, !=, <> | ==, !=, no >< ∵ unordered |
-| comprehension | [number for number in range( 1, 6) if number % 2 = = 1] | {letter: word.count( letter) for letter in set( word) if letter in vowels} |
+| comprehension | [~ for ~ in ~ if ~] | {letter: word.count( letter) for letter in set( word) if letter in vowels} |
 
 ``` py
 # zip(): iterate multiple sequeces with zip()
 for list1, list2, list3 in zip(list1, list2, list3):
 list(zip(tuple1, tuple2))
-# comprehension: [- for - in - if -]
+
+# comprehension:  [~ for ~ in ~ if ~]
 c_list = [number for number in range( 1, 6) if number % 2 = = 1]
 {letter: word.count( letter) for letter in set( word) if letter in vowels}
+
+# to modify the mutable list
+list1[-1] = list1[-1].[::-1]
+cap_list1 = '! '.join(i.capitalize() for i in list1)
 ```
 
 # 8. Dictionaries and Sets
