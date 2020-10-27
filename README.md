@@ -77,15 +77,10 @@ The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanov
 
 # 1. A Taste of Py
 
-### library modules
-
 ``` py
-
+# from library import function
 import webbrowser
 import json
-
-# from library import function
-
 from urllib.request import urlopen
 
 site = input("Type a website URL: ")
@@ -163,7 +158,7 @@ b -> [int, a3494, 7, 1]
 | [⭐lists](#Lists-&-Dictionaries)[] | ***mutable*** | **ordered** array + only string<br/>(array: unordered) | [' Winken' / 'Blinken' / 'Nod'] |
 | [tuple](#Tuples)() | immutable | **immutable** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
 | [set](#Sets)([]) | ***mutable*** | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
-| [⭐dict](#Lists-&-Dictionaries){} | **mutable** | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
+| [⭐dict](#Lists-&-Dictionaries){} | ***mutable*** | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
 |[functions](#9-Functions)| immutable || def print():|
 
 ## Assignment
@@ -228,65 +223,108 @@ if diff := tweet_limit - len( tweet_string) > = 0:
 
 # 5. Text Strings
 
-## definition
-
 * immutable string
-* base(empty string) is also string
-* \t, \n, \\(\), r'(raw string)'
-* ', ", (multi-line)''', """
-* []: 0, 1, n, **-1**
-* [ start : end : step ]: start ~ (end-1) offset skipping by step
 
-## function
-
-* print(a, b): add a space VS a + b: no space
-* print() VS the automatic echoing done by the interactive interpreter
+* Create with 'a', "a", , """a""", '''(multi-line)''', str(a)
 * str() -> (string formatting) => output
-* len(str), split('\n', '\t', ' '), 'a'.join(str), 
-* replace('a', 'b', n_times): didn't change the value <- the interactive interpreter
-* strip(), lstrip(), rstrip() (==trim)
-* find(), rfind() : -1 / index(), rindex(): exception / count(), isalnum()
-* capitalize(), upper(), lower(), swapcase() / center(), ljust(), rjust()
+* \t, \n, \\, \', \", r'(raw-string)'
+* replace('a', 'b', n_times): **didn't change the value** ∵ the interactive interpreter
+
+* print(), the automatic echoing done by the interactive interpreter
+* print(a, b): add a space VS a + b: no space
+* +, *
+
+* Get c with [ 0 || n || **-1** ]
+* Get substr with [ start=0 : end=len() : step=1 ]
+
+* split(default='\n', '\t', ' ') <-> ', '.join(str)
+* strip(), lstrip(), rstrip() (==trim '\n', '\t', ' ')
+
+* find(), rfind() : -1
+* index(), rindex(): exception 
+* count(), isalnum()
+
+* CASE: capitalize(), upper(), lower(), swapcase()
+
+* ALIGNMENT: center(30), ljust(30), rjust(30)
 
 ## formatting
 
-* Old style: %
-* New style: {} and format() ex. {index}, {:!^10s}
-* Newest Style: f' ~ {str.title()=} ~ '
+``` py
+# Old style: %
+'% s' % 7.03
+
+# New style: {} and format()
+'The {:! ^ 10s} is at the {:! ^ 10s}'.format(thing, place) # 'The !! wraith!! is at the !! window!!'
+
+# ⭐ Newest Style: f strings
+thing = 'wereduck'
+place = 'werepond'
+f'The {thing} is in the {place}' 'The wereduck is in the werepond' # 'The wereduck is in the werepond'
+f'The {thing: > 20} is in the {place:. ^ 20}' # 'The wereduck is in the ...... werepond......'
+f'{thing = :>4.4}' # thing = 'were'
+```
 
 # 6. Loop with while and for
 
-* while: ~ else: ~ continue, break(cancel the closest loop)
-* for ~ in ~: ~ else: ~ continue, break(cancel the closest loop)
-    - for x in range(start, **stop**, step) / list(range(0, 11, 2))
+``` py
+while/for ~:
+    if: continue # VS c, java: continue in while loop and continue in for loop work different. ∵i++
+    if: break    # else would be run if the while loop completed but the object was not found: 
+else: # => break checker = break not called
+```
+
+``` py
+for x in range(start, stop, step):
+list(range(0, 11, 2)):
+```
 
 # 7. Tuples and Lists
+
+In everyday programming, you’ll use **lists and dictionaries** more
+
+### Tuples VS Lists
+
+|lists|tuples|
+|---|---|
+|mutable|immutable => safe|
+|多 functions| 少 space|
+
+**Key** in the dict has to be **unique** -> almost string, and only **tuples** ∵ only immutable
 
 ## Tuples
 
 ### create
 
-* tuple unpacking
-  + tupleA = 'a', 'b', 'c'
-  + tupleA = ('a', 'b', 'c')
-  + a, b, c = tupleA
-  + to exchange values in one statement without using a temporary variable (o)
-* tuple(): makes tuples from other things
+``` py
+marx_tuple = 'a',
+marx_tuple = 'a', 'b', 'c'
+tuple(marx_list)
+# tuple unpacking
+a,b,c = marx_tuple
+# swap O without using temp
+password, icecream = icecream, password
+```
 
 ### add
 
-* +: combine, *: duplicate, <=>: compare, t1+=t2: **immutable** but can modify
+* +: combine, *: duplicate, <>=: compare
 
-## Tuples VS Lists
+``` py
+t1 += t2
+t1 # different from the above t1. It's new tuple. ∵immutable tuple
+```
 
-* lists: more functions
-* tuples: less space, immutable so safe
+### Lists VS Dictionaries
 
-## Lists & Dictionaries
+| Lists | Dictionaries |
+| ---- | ---- | 
+| by offset| by **key** |
+| **ordered**| unordered |
 
-| action | Lists | Dictionaries
+| action | Lists | Dictionaries |
 | ---- | ---- | ---- | 
-| create | [1, 'b', 3], list() | {'key'='value', }, dict(key='value'), dict(two-item lists, tuples, strings, characters)|
+| create | [1, 'b', 3]<br/>list() | {'key'='value', }<br/>dict(key='value'), dict(two-item lists, tuples, strings, characters)|
 | delete | del: by Offset, remove(): by Value, clear(): delete all<br/>pop(): get + return tail, pop(0): return head, pop(-1): return tail | del, pop(), clear() | 
 | assign | = | = |
 | extend | append(): Add to the end, insert(): add by Offset <br/> +: combine, *: duplicate<Br/>Convert a List to a String with join()<Br/>: ', '. join(marxes) / separator.join(friends) | combine : {**a, **b}, update(b) | 
@@ -297,14 +335,6 @@ if diff := tweet_limit - len( tweet_string) > = 0:
 | [copy](https://github.com/100sun/python_programming/blob/master/assignments/20181028%20%EB%B0%B1%EC%84%A0%ED%98%9C%20%EA%B3%BC%EC%A0%9C2.md#%EA%B0%80-%EC%84%A4%EB%AA%85) | shallow copy: b = a.copy() = list(a) = a[:]<br/>deep copy: b = copy.deepcopy(a) | copy(), deepcopy() |
 | compare | ==, !=, <> | ==, !=, no >< ∵ unordered |
 | comprehension | [number for number in range( 1, 6) if number % 2 = = 1] | {letter: word.count( letter) for letter in set( word) if letter in vowels} |
-
-## Lists VS Dictionaries
-
-* by offset vs by **key** 
-* **ordered** vs unordered
-* in **key**: has to be **unique** - almost string, and only **tuples** ∵ only immutable
-
-In everyday programming, you’ll use **lists and dictionaries** more
 
 # 8. Dictionaries and Sets
 
