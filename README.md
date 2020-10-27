@@ -138,15 +138,14 @@ b -> [int, a3494, 7, 1]
 * Py: Strong Type Lang => the *type* of an *object does not change*, even if its value is mutable
 * mostly immutable values but mutable values: ***ByteArray, List, Set, Dictionary***
 * bool / int / float / bytes(b'ab\ xff) / complex(5+9j) / str('alas', "alack", ''' a verse attack'''): all immutable values
-* Integer list : ***mutable***. 
+* Integer List : ***mutable***. 
 
-| Python Data Structures | mutable? | for what | ex |
+| Python Data Structures | mutable? | feature | comprehension |
 | ---- | ----- | ---- | ---- |
-| [⭐lists](#Lists-&-Dictionaries)[] | ***mutable*** | **ordered** array + only string<br/>(array: unordered) | [' Winken' / 'Blinken' / 'Nod'] |
-| [tuple](#Tuples)() | immutable | **immutable** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
-| [set](#Sets)([]) | ***mutable*** | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
-| [⭐dict](#Lists-&-Dictionaries){} | ***mutable*** | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
-|[functions](#9-Functions)| immutable || def print():|
+| (tuple) | immutable | can be key of Dictionary | X |
+| [⭐lists] | ***mutable*** | ordered | [~ for ~ in ~ if ~] |
+| {set} | ***mutable*** | unordered, key(unique, immutable) | {~ for ~ in ~ if ~} |
+| {⭐dict} | ***mutable*** | unordered, key(unique, immutable) : values(mutable) pairs | {~:~ for ~ in ~ if ~} |
 
 ## Assignment
 
@@ -275,7 +274,7 @@ In everyday programming, you’ll use **lists and dictionaries** more
 |lists|tuples|
 |---|---|
 |mutable|immutable => safe|
-|多 functions| 少 space|
+|多 functions| 少 space, speed⇑|
 |comprehension 有|comprehension 無|
 
 **Key** in the dict has to be **unique** -> almost string, and only **tuples** ∵ only immutable
@@ -315,11 +314,13 @@ t1 # different from the above t1. It's new tuple. ∵immutable tuple
 | ---- | ---- | ---- | 
 | create | [1, 'b', 3]<br/>list() | {'key'='value', }<br/>dict(key='value'), dict(two-level characters, strings, lists, tuples )|
 | split | split(), list[::-2]  |  |
-| add | **append**(str), **insert**(offset, str), **extend**(merge)<br/> +: combine +=: merge, *: duplicate<Br/>separator.join(friends) | dict[last_key]=last_val<Br/>{**a, **b}, update(b): combine | 
+| add | **append**(str), **insert**(offset, str)<Br/>separator.join(friends) | dict[last_key]=last_val |
+| combine | extend(b), += | a.update(b) | 
+| combine(new) | a+b | {**a, **b} | 
 | delete | **del** list[offset], **remove**('value'), **clear**(): delete all<br/>**pop**(0)=pop(-1)=tail, pop(0)=head| del<br/>clear()<br/>pop()| 
 | sort | list.**sort**(reverse=true <Br/>new_list = list.**sorted**()| |
-| find | **index**(value)<br/>value **in** list->True/False<br/>list.**count**(value), **len**(list) | dict[key]=value=**get**(key), **keys**(), **values**(), pairs=**items**() - pairs, pairs#=**len**(dict)<Br/>in |
-| traverse | for in<Br/> Iterate Multiple Sequences: zip() | for in<Br/>- values(), items() |
+| get/find | **index**(value)<br/>value **in** list->True/False<br/>list.**count**(value), **len**(list) | dict[key]=value=**get**(key), **keys**(), **values**()<Br/>in<Br/>pairs=**items**(), pairs#=**len**(dict) |
+| traverse | for in<Br/>zip() | for i in dict ≒ for i in dict.keys()<Br/>zip() |
 | [copy](https://github.com/100sun/python_programming/blob/master/assignments/20181028%20%EB%B0%B1%EC%84%A0%ED%98%9C%20%EA%B3%BC%EC%A0%9C2.md#%EA%B0%80-%EC%84%A4%EB%AA%85) | b = a.copy() = list(a) = a[:]<br/>b = copy.**deepcopy**(a) | copy()<Br/>deepcopy() |
 | compare | ==, !=, <> | ==, !=, **no ><** ∵ unordered |
 | comprehension | [~ for ~ in ~ if ~] | { ~:~ for ~ in ~ if ~} |
@@ -327,7 +328,7 @@ t1 # different from the above t1. It's new tuple. ∵immutable tuple
 ### Lists
 
 ``` py
-# zip(): iterate multiple sequeces with zip()
+# zip(): iterate multiple sequences with zip()
 for list1, list2, list3 in zip(list1, list2, list3):
 list(zip(tuple1, tuple2))
 
@@ -343,6 +344,8 @@ cap_list1 = '! '.join(i.capitalize() for i in list1)
 ### Dictionaries
 
 ``` py
+dict(zip(tuple1, tuple2))
+
 a = {1: 1, 2: 2, 3: 3}
 b = {3: 3, 1: 1, 2: 2}
 a == b # True
