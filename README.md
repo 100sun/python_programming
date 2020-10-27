@@ -1,18 +1,24 @@
+# Python Programming
+
 The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanovic](https://www.oreilly.com/library/view/introducing-python-2nd/9781492051374/)'.
 
 # Contents
 
+* [Python Programming](#python-programming)
+
 ### 1. A Taste of Py
 
-  + [Why Python](#why-python)
-  + [Why not Python](#why-not-python)
-  + [The Zen of Python, by Tim Peters](#the-zen-of-python-by-tim-peters)
+			* [library modules](#library-modules)
+    - [Why Python](#why-python)
+    - [Why not Python](#why-not-python)
+    - [The Zen of Python, by Tim Peters](#the-zen-of-python-by-tim-peters)
 
 ### 2. Data
 
-  + [Python Data Are Objects](#python-data-are-objects)
-  + [Types](#types)
-  + [Assignment](#assignment)
+    - [Python Data Are Objects](#python-data-are-objects)
+    - [What's in an python object?](#what's-in-an-python-object)
+    - [Types](#types)
+    - [Assignment](#assignment)
 
 ### 3. Numbers
 
@@ -20,58 +26,66 @@ The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanov
 
 ### 5. Text Strings
 
-  + [definition](#definition)
-  + [function](#function)
-  + [formatting](#formatting)
+    - [definition](#definition)
+    - [function](#function)
+    - [formatting](#formatting)
 
 ### 6. Loop with while and for
 
 ### 7. Tuples and Lists
 
-  + [Tuples](#tuples)
-  + [Tuples VS Lists](#tuples-vs-lists)
-  + [Lists & Dictionaries](#lists--dictionaries)
-  + [Lists VS Dictionaries](#lists-vs-dictionaries)
+    - [Tuples](#tuples)
+			* [create](#create)
+			* [add](#add)
+    - [Tuples VS Lists](#tuples-vs-lists)
+    - [Lists & Dictionaries](#lists--dictionaries)
+    - [Lists VS Dictionaries](#lists-vs-dictionaries)
 
 ### 8. Dictionaries and Sets
 
-  + [Sets](#sets)
+    - [Sets](#sets)
+			* [create](#create)
+			* [operator](#operator)
+			* [Set Comprehensions](#set-comprehensions)
 
 ### 9. Functions
 
-  + [None Is Useful](#none-is-useful)
-  + [Specify Default Parameter Values](#specify-default-parameter-values)
-  + [Positional Arguments VS Keyword Arguments](#positional-arguments-vs-keyword-arguments)
-  + [Mutable and Immutable Arguments](#mutable-and-immutable-arguments)
-  + [Docstrings](#docstrings)
-  + [Functions Are First-Class Object](#functions-are-first-class-object)
-  + [Inner Functions and Closures](#inner-functions-and-closures)
-  + [Anonymous Functions: lambda](#anonymous-functions-lambda)
-  + [Generators](#generators)
-  + [Decorators](#decorators)
-  + [Namespaces and Scope](#namespaces-and-scope)
-  + [Uses of _ and __ in Names](#uses-of-_-and-__-in-names)
-  + [Recursion](#recursion)
-  + [Async Functions](#async-functions)
-  + [Exceptions](#exceptions)
+    - [None Is Useful](#none-is-useful)
+    - [Specify Default Parameter Values](#specify-default-parameter-values)
+    - [Positional Arguments VS Keyword Arguments](#positional-arguments-vs-keyword-arguments)
+			* [Explode/Gather Positional Arguments with *](#explodegather-positional-arguments-with-)
+			* [Explode/Gather Keyword Arguments with **](#explodegather-keyword-arguments-with-)
+			* [Keyword-Only Arguments](#keyword-only-arguments)
+    - [Mutable and Immutable Arguments](#mutable-and-immutable-arguments)
+    - [Docstrings](#docstrings)
+    - [Functions Are First-Class Object](#functions-are-first-class-object)
+    - [Inner Functions and Closures](#inner-functions-and-closures)
+    - [Anonymous Functions: lambda](#anonymous-functions-lambda)
+    - [Generators](#generators)
+    - [Decorators](#decorators)
+    - [Namespaces and Scope](#namespaces-and-scope)
+    - [Uses of _ and __ in Names](#uses-of-_-and-__-in-names)
+    - [Recursion](#recursion)
+    - [Async Functions](#async-functions)
+    - [Exceptions](#exceptions)
 
 ### 10. Oh Oh: Objects and Classes
 
-  + [Object Oriented Paradigm](#object-oriented-paradigm)
-  + [Class](#class)
+    - [Object Oriented Paradigm](#object-oriented-paradigm)
+    - [Class](#class)
 
 <hr/>
 
-# 1. A Taste of Py
+## 1. A Taste of Py
 
-### library modules
+#### library modules
 
 ``` py
 
 import webbrowser
 import json
 
-# from library import function
+## from library import function
 
 from urllib.request import urlopen
 
@@ -82,70 +96,67 @@ response = urlopen(url)
 text = response.read().decode("utf-8")
 data = json.loads(text)
 
-# {'url': 'lolcats.com', 'timestamp': '20150613', 'archived_snapshots': {'closest': {'available': True, 'url': 'http://web.archive.org/web/20150610081618/http://www.lolcats.com/', 'timestamp': '20150610081618', 'status': '200'}}}
+## {'url': 'lolcats.com', 'timestamp': '20150613', 'archived_snapshots': {'closest': {'available': True, 'url': 'http://web.archive.org/web/20150610081618/http://www.lolcats.com/', 'timestamp': '20150610081618', 'status': '200'}}}
 
 try:
-    ## extract its value from a three-level Python dictionary.
+    ### extract its value from a three-level Python dictionary.
     old_site = data["archived_snapshots"]["closest"]["url"]
     webbrowser.open(old_site)
 except:
     print("Sorry, no luck finding", site)
 ```
 
-## Why Python
+### Why Python
 
 * simple and compact
 * google-picked
 * Data Science and Machine Learning
 
-## Why not Python
+### Why not Python
 
 * Static: C/C++, Java, Rust, Go
 * Dynamic(script): Python PHP => low speed
 * BUT std python interpreter in C is developing now
 
-## The Zen of Python, by Tim Peters 
+### The Zen of Python, by Tim Peters 
 
 * Beautiful is better than ugly.
 * Simple is better than complex. 
 * Complex is better than complicated. 
 * Readability counts. 
 
-# 2. Data
+## 2. Data
 
 * static lang: declare data type(o)
 * **dynamic lang**: declare data type(x)
 
-## Python Data Are Objects
+### Python Data Are Objects
 
-Python is rapping each data value(boolean / function..) as an object on the memory
+Python is rapping each data value(e.g. boolean / function..) as an object on the memory
 
-### In an object
+### What's in an python object?
 
 * A type (ex. Integer)
 * A unique id to distinguish it from other objects 
 * A value consistent with its type (ex. 7)
 * A reference count that tracks how often this object is used
 
-## Types
+### Types
 
-Py: Strong Type Lang => Data value can be ***mutable***, not the data type
+* Py: Strong Type Lang => the *type* of an *object does not change*, even if its value is mutable
+* mostly immutable values but mutable values: ***ByteArray, List, Set, Dictionary***
+* bool / int / float / bytes(b'ab\ xff) / complex(5+9j) / str('alas', "alack", ''' a verse attack'''): all immutable values
+* Integer list : ***mutable***. 
 
-* bool / int / float / bytes(b'ab\ xff) / complex(5+9j) / str('alas', "alack", ''' a verse attack''')
-
-<hr/>
-
-| Python Data Structures | for what | ex |
+| Python Data Structures | mutable? | for what | ex |
 | ---- | ----- | ---- |
-| [**lists**](#Lists-&-Dictionaries)[] | for **ordered** sequence of objects | [' Winken' / 'Blinken' / 'Nod'] |
-| [tuple](#Tuples)() | ***immutable*** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
-| [set](#Sets)([]) | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
-| [**dict**](#Lists-&-Dictionaries){} | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
-|[functions](#9-Functions)|***immutable***|def print():|
+| [⭐lists](#Lists-&-Dictionaries)[] | ***mutable*** | **ordered** array + only string<br/>(array: unordered) | [' Winken' / 'Blinken' / 'Nod'] |
+| [tuple](#Tuples)() | immutable | **immutable** list<br/>- Elements can't be added, removed or replaced after declaration. | (2 / 4 / 8) |
+| [set](#Sets)([]) | ***mutable*** | **unique** list<br/> - Elements doesn't have order and duplicates. extremely fast. | set([ 3 / 5 / 7]) |
+| [⭐dict](#Lists-&-Dictionaries){} | **mutable** | pair of **key and values** | {'game': 'bingo' / 'dog': 'dingo' / 'drummer': 'Ringo'} |
+|[functions](#9-Functions)| immutable || def print():|
 
-So just like reassigning an **integer**, it is pointing a new memory. But if you make an integer **list**, it is ***mutable***. 
-
-## Assignment
+### Assignment
 
 * expression VS statement
 * Dynamic Lang: 
@@ -155,7 +166,7 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
     - reassigning => reference_count++; || reference_count == 0 (**garbage collector**)
     - can assign to **multiple** names
 
-# 3. Numbers
+## 3. Numbers
 
 * Booleans: int(True) -> 1 / bool(0.0) -> False
 * Integers: 1_2_3 可 (in recent Java too)
@@ -168,7 +179,7 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
     - bin(), oct(), hdx()
     - chr(65) = ord('A'), chr(97) = ord('a')
 
-# 4. Choose with if
+## 4. Choose with if
 
 * block(x) indentation(o) <- Guido van Rossum loves to beautify 
 * Comment with #
@@ -179,9 +190,9 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
     - in (membership operator)
     - name := expression (walrus operator)
 
-# 5. Text Strings
+## 5. Text Strings
 
-## definition
+### definition
 
 * immutable string
 * base(empty string) is also string
@@ -190,7 +201,7 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
 * []: 0, 1, n, **-1**
 * [ start : end : step ]: start ~ (end-1) offset skipping by step
 
-## function
+### function
 
 * print(a, b): add a space VS a + b: no space
 * print() VS the automatic echoing done by the interactive interpreter
@@ -201,23 +212,23 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
 * find(), rfind() : -1 / index(), rindex(): exception / count(), isalnum()
 * capitalize(), upper(), lower(), swapcase() / center(), ljust(), rjust()
 
-## formatting
+### formatting
 
 * Old style: %
 * New style: {} and format() ex. {index}, {:!^10s}
 * Newest Style: f' ~ {str.title()=} ~ '
 
-# 6. Loop with while and for
+## 6. Loop with while and for
 
 * while: ~ else: ~ continue, break(cancel the closest loop)
 * for ~ in ~: ~ else: ~ continue, break(cancel the closest loop)
     - for x in range(start, **stop**, step) / list(range(0, 11, 2))
 
-# 7. Tuples and Lists
+## 7. Tuples and Lists
 
-## Tuples
+### Tuples
 
-### create
+#### create
 
 * tuple unpacking
   + tupleA = 'a', 'b', 'c'
@@ -226,16 +237,16 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
   + to exchange values in one statement without using a temporary variable (o)
 * tuple(): makes tuples from other things
 
-### add
+#### add
 
 * +: combine, *: duplicate, <=>: compare, t1+=t2: **immutable** but can modify
 
-## Tuples VS Lists
+### Tuples VS Lists
 
 * lists: more functions
 * tuples: less space, immutable so safe
 
-## Lists & Dictionaries
+### Lists & Dictionaries
 
 | action | Lists | Dictionaries
 | ---- | ---- | ---- | 
@@ -251,7 +262,7 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
 | compare | ==, !=, <> | ==, !=, no >< ∵ unordered |
 | comprehension | [number for number in range( 1, 6) if number % 2 = = 1] | {letter: word.count( letter) for letter in set( word) if letter in vowels} |
 
-## Lists VS Dictionaries
+### Lists VS Dictionaries
 
 * by offset vs by **key** 
 * **ordered** vs unordered
@@ -259,22 +270,22 @@ So just like reassigning an **integer**, it is pointing a new memory. But if you
 
 In everyday programming, you’ll use **lists and dictionaries** more
 
-# 8. Dictionaries and Sets
+## 8. Dictionaries and Sets
 
-## Sets
+### Sets
 
 * A list by using square brackets ([]) 
 * A tuple by using commas and optional parentheses 
 * A dictionary or set by using curly brackets ({}) 
   + For the set, it’s either there or it’s not; there’s no index or key:
 
-### create
+#### create
 
 * set(), {} (but empty {} == dict)
 * len(), add(), remove(), in, for in
 * Create an Immutable Set with frozenset()
 
-### operator
+#### operator
 
 * &, intersection()
 * |, union()
@@ -282,31 +293,37 @@ In everyday programming, you’ll use **lists and dictionaries** more
 * ^, symmetric_difference()
 * <=, issubset(), >=, issuperset(), >, <
 
-### Set Comprehensions
+#### Set Comprehensions
 
 * a_set = {number for number in range( 1, 6) if number % 3 = = 1}
 
-# 9. Functions
+## 9. Functions
 
-## None Is Useful
+### None Is Useful
 
 * None is a special Python value that holds a place when there is nothing to say.
 
-## Specify Default Parameter Values
+### Specify Default Parameter Values
 
 ``` py
-# it’s empty only the first time it’s called. The second time, result still has one item from the previous call:
+
+## it’s empty only the first time it’s called. The second time, result still has one item from the previous call:
+
 def buggy(arg, result=[])
-# 1. no default parameter value, then declare it as an empty list later
+
+## 1. no default parameter value, then declare it as an empty list later
+
 def works(arg):
     result = []
-# 2. specify default parameter value as not empty, then declare it as an empty list
+
+## 2. specify default parameter value as not empty, then declare it as an empty list
+
 def nonbuggy(arg, result = None):
     if result is None:
         result = []
 ```
 
-## Positional Arguments VS Keyword Arguments
+### Positional Arguments VS Keyword Arguments
 
 Argument order
 
@@ -314,7 +331,7 @@ Argument order
 2. Optional positional arguments *(*args)*
 3. Optional keyword arguments *(** kwargs)*
 
-### Explode/Gather Positional Arguments with *
+#### Explode/Gather Positional Arguments with *
 
 *args
 
@@ -323,79 +340,86 @@ Argument order
 * when defining: gather all those positional arguments into a single tuple of parameter values
     - if it was a tuple -> because one tuple of two-level tuple
 
-### Explode/Gather Keyword Arguments with **
+#### Explode/Gather Keyword Arguments with **
 
 **kwargs
 
 * when calling: explode a dictionary kwargs into name = value arguments
 * when defining: gather name = value keyword arguments into the single dictionary parameter kwargs.
 
-### Keyword-Only Arguments
+#### Keyword-Only Arguments
 
 ``` py
-# they must be provided as name = value, not positionally as value.
+
+## they must be provided as name = value, not positionally as value.
+
 print_data(data) #okay
 print_data(data, start=4) #okay
 print_data(data, 4) #notOkay
 ```
 
-## Mutable and Immutable Arguments
+### Mutable and Immutable Arguments
 
 That was because the list was mutable and the integer and string were immutable.
 
 ``` py
-arg[1] = "~" # changed the second object of a list
+arg[1] = "~" ## changed the second object of a list
 ```
 
-## Docstrings
+### Docstrings
 
 ``` py
 def ~():
-    'echo ~~' # declare function's docstring
+    'echo ~~' ## declare function's docstring
 
-help(echo) # print docstring
-print(echo.__doc__) # print raw docstring
+help(echo) ## print docstring
+print(echo.__doc__) ## print raw docstring
 ```
 
-## Functions Are First-Class Object
+### Functions Are First-Class Object
 
 ``` py
-# both objects(variable and function) point to same address.
+
+## both objects(variable and function) point to same address.
+
 f1=func()
 
 print(f1 is func) #True 
 ```
 
-## Inner Functions and Closures
+### Inner Functions and Closures
 
 ``` py
 def knights(saying):
     def inner(quote):
         return "We are the knights who say: '% s'" % quote
     return inner(saying)
-# closure
+
+## closure
+
 def knights2(saying):
-    def inner2(): # inner2() uses the outer saying parameter directly instead of getting it as an argument.
+    def inner2(): ## inner2() uses the outer saying parameter directly instead of getting it as an argument.
         return "We are the knights who say: '% s'" % saying
     return inner2
 
-# The inner2() function knows the value of saying that was passed in and remembers it. 
+## The inner2() function knows the value of saying that was passed in and remembers it. 
+
 >>> a=knights2('duck')
 >>> type(a)
-<class 'function'> # <class 'str'>
+<class 'function'> ## <class 'str'>
 >>> a()
-"We are the knights who say: 'duck'" # so str obj is not callable => err
+"We are the knights who say: 'duck'" ## so str obj is not callable => err
 >>> a
-<function knights2.<locals>.inner2 at 0x00000166DDC1AEE0> # "~~"
+<function knights2.<locals>.inner2 at 0x00000166DDC1AEE0> ## "~~"
 ```
 
-## Anonymous Functions: lambda
+### Anonymous Functions: lambda
 
 ``` py
 edit_story( stairs, lambda word: word.capitalize() + '!')
 ```
 
-## Generators
+### Generators
 
 : sequence creation object
 
@@ -404,10 +428,10 @@ edit_story( stairs, lambda word: word.capitalize() + '!')
 ``` py
 >>> def get_odds(): 
 	for num in range(1,10,2):
-		yield num ### instead of return
+		yield num #### instead of return
 
->>> get_odds # function
->>> get_odds() # generator object
+>>> get_odds ## function
+>>> get_odds() ## generator object
 >>> cnt = 1
 >>> for num in get_odds():
 	if cnt == 3:
@@ -417,10 +441,10 @@ edit_story( stairs, lambda word: word.capitalize() + '!')
 
 5
 >>> genobj = (pair for pair in zip([' a', 'b'], [' 1', '2'])) 
->>> for num in genobj: # generator object
+>>> for num in genobj: ## generator object
 ```
 
-## Decorators
+### Decorators
 
 : a function that takes one function as input and returns another function.
 
@@ -428,20 +452,23 @@ edit_story( stairs, lambda word: word.capitalize() + '!')
 
 ``` py
 >>> def test(func):
-	def new_func(*args, **kwargs): # Inner functions w/ *args and ** kwargs
+	def new_func(*args, **kwargs): ## Inner functions w/ *args and ** kwargs
 		print('start')
-		result = func(*args, **kwargs) # Functions as agruments
+		result = func(*args, **kwargs) ## Functions as agruments
 		print('end')
 		return result
 	return new_func
 
 >>> 
-# manual_dec_func() = test(dec_func) # manual decorator assignment
+
+## manual_dec_func() = test(dec_func) ## manual decorator assignment
+
 >>> @test
 def dec_func():
 	print("This was decorated to the decorator @test")
 
-# manual_dec_func(put arg)
+## manual_dec_func(put arg)
+
 >>> dec_func()
 start
 This was decorated to the decorator @test
@@ -449,7 +476,7 @@ end
 >>> 
 ```
 
-## Namespaces and Scope
+### Namespaces and Scope
 
 * namespace in main: global scope
     - globals() returns a dictionary of the contents of the global namespace.(⊃ functions, the first class citizen)
@@ -457,12 +484,12 @@ end
     - locals() returns a dictionary of the contents of the local namespace. 
 * how to change: **global** ~ \n ~ = ''
 
-## Uses of _ and __ in Names
+### Uses of _ and __ in Names
 
 * the name of a function: function.__name__
 * its docstring: function.__doc__:
 
-## Recursion
+### Recursion
 
 * Python saves the universe again by raising an exception if you get too deep
     - RecursionError: maximum recursion depth exceeded
@@ -471,19 +498,19 @@ end
 def flatten(lol):
     for item in lol:
         if isinstance(item, list):
-            # yield from flatten(item)
+            ## yield from flatten(item)
             for subitem in flatten(item):
                 yield subitem
         else:
             yield item
 ```
 
-## Async Functions
+### Async Functions
 
 * sync: default
 * async: by *async* and *await*
 
-## Exceptions
+### Exceptions
 
 ``` py
 try:
@@ -492,9 +519,9 @@ except IOException as error_name:
     ~~
 ```
 
-# 10. Oh Oh: Objects and Classes
+## 10. Oh Oh: Objects and Classes
 
-## Object Oriented Paradigm
+### Object Oriented Paradigm
 
 PIE
 
@@ -504,7 +531,7 @@ PIE
 
 object = pointer/reference(c++) = reference(java) = reference(python)
 
-## Class
+### Class
 
 * attributes: class **.** attribute
 * multiple inheritance: c++(o) java(x->interface) python(o) by mro
@@ -514,14 +541,14 @@ class cat():
 
     pass
 
-cat.mro() # Method Resolution Order: itself -> first-second parent -> grandparent ...
+cat.mro() ## Method Resolution Order: itself -> first-second parent -> grandparent ...
 
 class parent():
 
-    def __init__(self, name): # initialization: the first one has to be **self**
-        self.name=name # empty class
+    def __init__(self, name): ## initialization: the first one has to be **self**
+        self.name=name ## empty class
 
-class child(parent): # issubclass(child, parent)
+class child(parent): ## issubclass(child, parent)
 
     def __init__(self, name, email):
         super().__init__(name)
