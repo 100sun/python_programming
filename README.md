@@ -329,9 +329,9 @@ t1 # different from the above t1. It's new tuple. ∵immutable tuple
 | create | [1, 'b', 3]<br/>list() | {'key'='value', }<br/>dict(key='value'), dict(two-level characters, strings, lists, tuples )|
 | split | split(), list[::-2]  |  |
 | add | **append**(str), **insert**(offset, str), **extend**(merge)<br/> +: combine, *: duplicate, +=: merge<Br/>separator.join(friends) | combine : {**a, **b}, update(b) | 
-| delete | **del** list[offset], **remove**('value'), **clear**(): delete all<br/>get+return) **pop**(0)=pop(-1)=tail, pop(0)=head| del, clear()<br/>pop()| 
+| delete | **del** list[offset], **remove**('value'), **clear**(): delete all<br/>**pop**(0)=pop(-1)=tail, pop(0)=head| del, clear()<br/>pop()| 
 | assign | = | = |
-| sort | sort(reverse=true): list itself, sorted(): copied list | |
+| sort | list.sort(reverse=true <Br/>new_list = list.sorted()| |
 | find |  index()<br/>in: True/False, count(), len() | [key], get(), keys(), values(), items() - pairs, len()<Br/>in |
 | traverse | for and in<Br/> Iterate Multiple Sequences: zip() | for and in<Br/>- values(), items() |
 | [copy](https://github.com/100sun/python_programming/blob/master/assignments/20181028%20%EB%B0%B1%EC%84%A0%ED%98%9C%20%EA%B3%BC%EC%A0%9C2.md#%EA%B0%80-%EC%84%A4%EB%AA%85) | shallow copy: b = a.copy() = list(a) = a[:]<br/>deep copy: b = copy.deepcopy(a) | copy(), deepcopy() |
