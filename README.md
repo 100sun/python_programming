@@ -39,12 +39,9 @@ The material for this class is '[Introducing Python, 2nd Edition by Bill Lubanov
 
 ### [9. Functions](#9-functions-1)
 
-  + [None Is Useful](#none-is-useful)
-  + [Specify Default Parameter Values](#specify-default-parameter-values)
+  + [Specify Default Parameter Values in None](#specify-default-parameter-values-in-none)
   + [Positional Arguments VS Keyword Arguments](#positional-arguments-vs-keyword-arguments)
-  + [Mutable and Immutable Arguments](#mutable-and-immutable-arguments)
   + [Docstrings](#docstrings)
-  + [Functions Are First-Class Object](#functions-are-first-class-object)
   + [Inner Functions and Closures](#inner-functions-and-closures)
   + [Anonymous Functions: lambda](#anonymous-functions-lambda)
   + [Generators](#generators)
