@@ -115,7 +115,7 @@ except:
 
 ``` py
 type(7) # <class 'int'>
-isinstance(7, type)
+isinstance(7, int)
 ```
 
 ## What's in an python object?
@@ -126,8 +126,8 @@ isinstance(7, type)
 * A *reference count* that tracks how often this object is used
 
 ``` 
-a -> [int, a3494, 7, 1]
-b -> [int, a3494, 7, 1]
+a <- [int, a3494, 7, 1]
+b <- [int, a3494, 7, 1]
 ```
 
 ## Types
