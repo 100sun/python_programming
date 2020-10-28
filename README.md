@@ -382,71 +382,59 @@ a_set = {number for number in range(1, 6) if number % 3 = = 1}
 
 # 9. Functions
 
-## None Is Useful
+## Specify Default Parameter Values in None
 
 * None is a special Python value that holds a place when there is nothing to say.
 
-## Specify Default Parameter Values
-
 ``` py
-
-# it’s empty only the first time it’s called. The second time, result still has one item from the previous call:
-
-def buggy(arg, result=[])
+# it’s empty only in the first time it’s called. In the second time, result still has one item from the previous call:
+def prob(arg, result=[]):
+    result.append(arg)
+    print(result)
 
 # 1. no default parameter value, then declare it as an empty list later
-
-def works(arg):
+def sol1(arg):
     result = []
+    result.append(arg)
+    print(result)
 
 # 2. specify default parameter value as not empty, then declare it as an empty list
-
-def nonbuggy(arg, result = None):
+def sol2(arg, result = None):
     if result is None:
         result = []
+    result.append(arg)
+    print(result)
 ```
 
 ## Positional Arguments VS Keyword Arguments
 
-Argument order
-
-1. Required *positional* arguments
-2. Optional positional arguments *(*args)*
-3. Optional keyword arguments *(** kwargs)*
+* Argument order: Required *positional* arguments < Optional positional arguments (*args) < Optional keyword arguments (** kwargs)
 
 ### Explode/Gather Positional Arguments with *
 
-*args
+* def f1(n1, n2): positional argument
+* def f1(*args): gather all those positional arguments into **a single args tuple**
+    - => if parameter was a tuple -> args becomes one of of *two-level tuple*
 
-* when calling: explode that tuple to the positional arguments
-    - if it was a tuple -> also single tuple
-* when defining: gather all those positional arguments into a single tuple of parameter values
-    - if it was a tuple -> because one tuple of two-level tuple
+``` py
+print_args(*args) # the tuple of gathered arguments made in the func 
+print_args(args) # the declared parameter value itself
+```
 
 ### Explode/Gather Keyword Arguments with **
 
-**kwargs
+* def f1(n1=1, n2=2): keyword argument
+* def f1(**kwargs): gather all those keyword arguments into the **a single kwargs dictionary**
 
-* when calling: explode a dictionary kwargs into name = value arguments
-* when defining: gather name = value keyword arguments into the single dictionary parameter kwargs.
-
-### Keyword-Only Arguments
+### Define Keyword-Only Arguments with *
 
 ``` py
-
+def print_data(data, *, start=0, end=100):
+    print(data)
 # they must be provided as name = value, not positionally as value.
-
 print_data(data) #okay
 print_data(data, start=4) #okay
 print_data(data, 4) #notOkay
-```
-
-## Mutable and Immutable Arguments
-
-That was because the list was mutable and the integer and string were immutable.
-
-``` py
-arg[1] = "~" # changed the second object of a list
 ```
 
 ## Docstrings
@@ -459,41 +447,21 @@ help(echo) # print docstring
 print(echo.__doc__) # print raw docstring
 ```
 
-## Functions Are First-Class Object
-
-``` py
-
-# both objects(variable and function) point to same address.
-
-f1=func()
-
-print(f1 is func) #True 
-```
-
 ## Inner Functions and Closures
 
+* inner: acts as a closure
+* inner(): directly use the outer parameter
+* inner() knows the value of saying that was passed in and remembers it.
+
 ``` py
-def knights(saying):
-    def inner(quote):
-        return "We are the knights who say: '% s'" % quote
-    return inner(saying)
-
-# closure
-
 def knights2(saying):
-    def inner2(): # inner2() uses the outer saying parameter directly instead of getting it as an argument.
+    def inner2(): # no argument, just use the outer parameter directly
         return "We are the knights who say: '% s'" % saying
     return inner2
 
-# The inner2() function knows the value of saying that was passed in and remembers it. 
-
->>> a=knights2('duck')
->>> type(a)
-<class 'function'> # <class 'str'>
->>> a()
-"We are the knights who say: 'duck'" # so str obj is not callable => err
->>> a
-<function knights2.<locals>.inner2 at 0x00000166DDC1AEE0> # "~~"
+a = knights2('duck')
+print(type(a))  # <class 'function'>
+print(a())  # The inner2() function knows the value of saying that was passed in and remembers it.
 ```
 
 ## Anonymous Functions: lambda
@@ -517,59 +485,61 @@ print(list(genobj()) # generator object
 
 ## Decorators
 
-: a function that takes one function as input and returns another function.
-
-* just above the def(@~) runs first
+* a function that takes one function as input and returns another function.
+* decorator returns a modified function or class.
+* The modified functions or classes usually contain calls to the original function.
+* @: just above the def runs first
 
 ``` py
->>> def test(func):
-	def new_func(*args, **kwargs): # Inner functions w/ *args and ** kwargs
-		print('start')
-		result = func(*args, **kwargs) # Functions as agruments
-		print('end')
-		return result
-	return new_func
+# decorator
+def my_decorator(func):  # function as a parameter
+    def func_wrapper(*args, **kwargs):
+        print("Before calling " + func.__name__)
+        result = func(*args, **kwargs)  # call the function
+        print("After calling " + func.__name__)
+        return result
+    return func_wrapper  # return reference to function object
 
->>> 
+# 1. manually decorating
+def f1(a, b):
+    return a+b
+f1 = my_decorator(f1)  # manual decoration
+print(f1(1, 2))
 
-# manual_dec_func() = test(dec_func) # manual decorator assignment
-
->>> @test
-def dec_func():
-	print("This was decorated to the decorator @test")
-
-# manual_dec_func(put arg)
-
->>> dec_func()
-start
-This was decorated to the decorator @test
-end
->>> 
+# 2. w/ @
+@my_decorator
+def f1(a, b):
+    return a+b
+print(f1(1, 2))  # no need of manual decoration
 ```
 
 ## Namespaces and Scope
 
-* namespace in main: global scope
-    - globals() returns a dictionary of the contents of the global namespace.(⊃ functions, the first class citizen)
-* namespace in func: local scope
-    - locals() returns a dictionary of the contents of the local namespace. 
-* how to change: **global** ~ \n ~ = ''
+``` py
+locals() # returns a dictionary of the contents of the local namespace. 
+globals() # a dictionary of the contents of the global namespace. (⊃ functions, the first class citizen)
+
+global n # access global var
+n = '2' # and change it
+```
 
 ## Uses of _ and __ in Names
 
-* the name of a function: function.__name__
-* its docstring: function.__doc__:
+* the name of a function f: f.__name__
+* its docstring: f.__doc__:
 
 ## Recursion
 
-* Python saves the universe again by raising an exception if you get too deep
-    - RecursionError: maximum recursion depth exceeded
+* when function calls itself => RecursionError: maximum recursion depth exceeded
+* useful when list of lists of lists
 
 ``` py
 def flatten(lol):
     for item in lol:
         if isinstance(item, list):
-            # yield from flatten(item)
+            #1. py3.3~
+                yield from flatten(item)
+            #2. ~py3.3
             for subitem in flatten(item):
                 yield subitem
         else:
@@ -584,10 +554,14 @@ def flatten(lol):
 ## Exceptions
 
 ``` py
+class myException(Exception): # make my own exception
+    pass
+
 try:
-    ~~
-except IOException as error_name:
-    ~~
+    raise myException # occur exception
+except myException as myExpObj:  # make an exception obj
+    print("error")
+
 ```
 
 # 10. Oh Oh: Objects and Classes
@@ -600,29 +574,34 @@ PIE
 2. Inheritance
 3. Polymorphism
 
-object = pointer/reference(c++) = reference(java) = reference(python)
+||C|Java|Python|
+|--|--|--|--|
+|object|by pointer/reference|by reference|by reference|
+|multiple inheritance| O | X -> interface | O -> mro|
 
 ## Class
 
-* attributes: class **.** attribute
-* multiple inheritance: c++(o) java(x->interface) python(o) by mro
-
 ``` py 
-class cat():
+class Cat:
+pass
 
-    pass
-
-cat.mro() # Method Resolution Order: itself -> first-second parent -> grandparent ...
+a_cat = Cat() # class obj
+a_cat.age = 3 # access the attribute
 
 class parent():
 
-    def __init__(self, name): # initialization: the first one has to be **self**
+    def __init__(self, name): # initialization: the first one has to be self
         self.name=name # empty class
 
 class child(parent): # issubclass(child, parent)
 
     def __init__(self, name, email):
-        super().__init__(name)
+        super().__init__(name) # inheritance
         self.email=email
 
+cat.mro() # Method Resolution Order
+
+# [<class '__main__.child'>, <class '__main__.parent'>, <class 'object'>]
+
+# ifself -> parents -> grandparent -> ... -> type 
 ```
