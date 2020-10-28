@@ -329,9 +329,8 @@ t1 # different from the above t1. It's new tuple. ∵immutable tuple
 for list1, list2, list3 in zip(list1, list2, list3):
 list(zip(tuple1, tuple2))
 
-# comprehension:  [~ for ~ in ~ if ~]
+# comprehension=
 c_list = [number for number in range( 1, 6) if number % 2 = = 1]
-{letter: word.count( letter) for letter in set( word) if letter in vowels}
 
 # to modify the mutable list
 list1[-1] = list1[-1].[::-1]
@@ -342,6 +341,8 @@ cap_list1 = '! '.join(i.capitalize() for i in list1)
 
 ``` py
 dict(zip(tuple1, tuple2))
+#comprehension
+{letter: word.count(letter) for letter in set(word) if letter in vowels}
 
 a = {1: 1, 2: 2, 3: 3}
 b = {3: 3, 1: 1, 2: 2}
